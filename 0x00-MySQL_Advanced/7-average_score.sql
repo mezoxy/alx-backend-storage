@@ -7,7 +7,7 @@ BEGIN
 	DECLARE somme INT;
 	SELECT AVG(score) INTO somme FROM corrections GROUP BY user_id;
 
-	UPDATE INTO users
+	UPDATE users
 	SET average_score = somme
 	WHERE users.id = id;
 END;
