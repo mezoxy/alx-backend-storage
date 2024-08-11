@@ -5,7 +5,7 @@ DELIMITER $$
 CREATE PROCEDURE ComputeAverageScoreForUser(IN id INT)
 BEGIN
 	DECLARE somme INT;
-	SELECT AVG(score) INTO somme FROM corrections GROUP BY user_id;
+	SELECT AVG(score) INTO somme FROM corrections WHERE user_id = id GROUP BY user_id;
 
 	UPDATE users
 	SET average_score = somme
