@@ -10,5 +10,5 @@ BEGIN
 	UPDATE users
 	SET average_score = somme
 	WHERE users.id = id;
-END;
+END$$
 DELIMITER ;
