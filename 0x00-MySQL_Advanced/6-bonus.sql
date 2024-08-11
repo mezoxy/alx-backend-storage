@@ -8,7 +8,7 @@
 DELIMITER $$
 CREATE PROCEDURE AddBonus(IN user_id INT, IN pr_name VARCHAR(255), IN score INT)
 BEGIN
-	DECLARE id_pr INT;
+	-- DECLARE id_pr INT;
 
 	IF NOT EXISTS (SELECT id from projects WHERE name = pr_name) THEN
 		INSERT INTO projects
@@ -19,6 +19,6 @@ BEGIN
 	SELECT id INTO id_pr FROM projects WHERE name = pr_name LIMIT 1; -- we can use another method: SET @id_pr = (select id from projects WHERE name = pr_name);
 
 	INSERT INTO corrections (user_id, project_id, score)
-	VALUES (user_id, @id_pr, score);
+	VALUES (user_id, id_pr, score);
 END$$
 DELIMITER ;
