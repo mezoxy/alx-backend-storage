@@ -8,7 +8,7 @@
 DELIMITER $$
 CREATE PROCEDURE AddBonus(IN user_id INT, IN pr_name VARCHAR(255), IN score INT)
 BEGIN
-	-- DECLARE id_pr INT;
+	DECLARE id_pr INT;
 
 	IF NOT EXISTS (SELECT id from projects WHERE name = pr_name) THEN
 		INSERT INTO projects
