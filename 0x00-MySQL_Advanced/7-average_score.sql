@@ -4,7 +4,7 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeAverageScoreForUser(IN id INT)
 BEGIN
-	DECLARE somme INT;
+	DECLARE somme DECIMAL(10, 2);
 	SELECT AVG(score) INTO somme FROM corrections WHERE user_id = id GROUP BY user_id;
 
 	UPDATE users
