@@ -16,7 +16,7 @@ BEGIN
 
 	END IF;
 
-	SELECT id INTO id_pr FROM projects WHERE name = pr_name LIMIT 1; -- we can use another method: SET @id_pr = (select id from projects WHERE name = pr_name);
+	SELECT id INTO id_pr FROM projects WHERE name = pr_name LIMIT 1; -- we can use another method: SET @id_pr = (select id from projects WHERE name = pr_name); but to use the var id_pr call it with @
 
 	INSERT INTO corrections (user_id, project_id, score)
 	VALUES (user_id, id_pr, score);
