@@ -18,7 +18,7 @@ class Cache:
         self._redis.flushdb()
 
 
-    def store(self, data: Any) -> str:
+    def store(self, data: int | float | str | bytes) -> str:
         '''
             store: A methode that store the input data in Redis using the random key
             Args:
