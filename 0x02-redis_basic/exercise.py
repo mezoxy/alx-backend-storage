@@ -5,6 +5,7 @@
 import redis as re
 import uuid as u
 from typing import Any
+from json import dumps
 
 
 class Cache:
@@ -25,5 +26,7 @@ class Cache:
             Return: A string
         '''
         key = str(u.uuid4())
+        if isinstance(data, bytes):
+            data = data.decode('utf-8')
         self._redis.set(key, data)
         return key
