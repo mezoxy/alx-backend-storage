@@ -4,8 +4,7 @@
 
 import redis as re
 import uuid as u
-from typing import Any
-from json import dumps
+from typing import Union
 
 
 class Cache:
@@ -18,7 +17,7 @@ class Cache:
         self._redis.flushdb()
 
 
-    def store(self, data: Any) -> str:
+    def store(self, data: Union[str, int ,float, bytes]) -> str:
         '''
             store: A methode that store the input data in Redis using the random key
             Args:
@@ -26,7 +25,5 @@ class Cache:
             Return: A string
         '''
         key = str(u.uuid4())
-        if isinstance(data, bytes):
-            data = data.decode('utf-8')
         self._redis.set(key, data)
         return key
