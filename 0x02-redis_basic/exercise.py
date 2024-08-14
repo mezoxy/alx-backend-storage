@@ -11,7 +11,7 @@ class Cache:
     '''
         Cache: A class Using redis
     '''
-    def __init__(self):
+    def __init__(self) -> None:
         '''Costructor'''
         self._redis = re.Redis()
         self._redis.flushdb()
