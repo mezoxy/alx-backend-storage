@@ -4,6 +4,7 @@
 
 import redis as re
 import uuid as u
+from typing import Any
 
 
 class Cache:
@@ -16,7 +17,7 @@ class Cache:
         self._redis.flushdb()
 
 
-    def store(self, data: any) -> str:
+    def store(self, data: Any) -> str:
         '''
             store: A methode that store the input data in Redis using the random key
             Args:
